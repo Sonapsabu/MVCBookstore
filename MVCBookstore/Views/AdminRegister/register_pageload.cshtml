@@ -1,0 +1,67 @@
+﻿@model MVCBookstore.Models.adminregister
+@{
+    ViewBag.Title = "register_pageload";
+}
+
+<h2>Register</h2>
+<div>
+    @using(Html.BeginForm("register_click", "AdminRegister", FormMethod.Post))
+            {
+    <table border-spacing:10px>
+        <tr>
+            <th><label>Name:</label></th>
+            <td>
+                @Html.TextBoxFor(m => m.Name)
+                @Html.ValidationMessageFor(m => m.Name)
+            </td>
+
+        </tr>
+        <tr></tr>
+        <tr>
+            <th><label>Address:</label></th>
+            <td>
+                @Html.TextBoxFor(m => m.Address)
+                @Html.ValidationMessageFor(m => m.Address)
+            </td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <th><label>Email:</label></th>
+            <td>
+                @Html.TextBoxFor(m => m.Email)
+                @Html.ValidationMessageFor(m => m.Email)
+            </td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <th><label>Username:</label></th>
+            <td>
+                @Html.TextBoxFor(m => m.Username)
+                @Html.ValidationMessageFor(m => m.Username)
+            </td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <th><label>Password:</label></th>
+            <td>
+                @Html.PasswordFor(m => m.Password)
+                @Html.ValidationMessageFor(m => m.Password)
+            </td>
+        </tr>
+        <tr></tr>
+        <tr>
+            <th><label>Confirm Password:</label></th>
+            <td>
+                @Html.PasswordFor(m => m.confirmpassword)
+                @Html.ValidationMessageFor(m => m.confirmpassword)
+            </td>
+        </tr>
+
+    </table>
+    <div>
+        <input type="submit" value="Register" />
+        @Html.DisplayFor(m => m.msg)
+    </div>
+            }
+</div>
+

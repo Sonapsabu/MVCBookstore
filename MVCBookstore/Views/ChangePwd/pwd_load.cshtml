@@ -1,0 +1,41 @@
+﻿@model MVCBookstore.Models.UserPwd
+@{
+    ViewBag.Title = "pwd_load";
+}
+
+<h2>change password</h2>
+<div>
+    @using (Html.BeginForm("pwd_click", "ChangePwd", FormMethod.Post))
+    {
+        <div>
+            <label>Current password</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.oldpassword)
+        </div>
+
+        <div>
+            <label>new password</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.newpassword)
+            @Html.ValidationMessageFor(m => m.newpassword)
+        </div>
+
+        <div>
+            <label>confirm password</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.confirmpassword)
+            @Html.ValidationMessageFor(m => m.confirmpassword)
+        </div>
+        <div>
+            <input type="submit" value="Reset password" />
+            @Html.DisplayFor(m => m.msg)
+        </div>
+        <div>
+            @Html.ActionLink("Back to Home", "Home", "DBLogin")
+        </div>
+    }
+</div>
+

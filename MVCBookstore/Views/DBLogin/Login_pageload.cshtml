@@ -1,0 +1,40 @@
+﻿@model MVCBookstore.Models.adminlogin
+@{
+    ViewBag.Title = "Login_pageload";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Login</h2>
+<div>
+    @using(Html.BeginForm("Login_click", "DBLogin", FormMethod.Post))
+            {
+                <div>
+                    <table>
+                        <tr>
+                            <th><label>UserName:</label></th>
+                            <td>
+                                @Html.TextBoxFor(m => m.Username)
+                                @Html.ValidationMessageFor(m => m.Username)
+                            </td>
+                        </tr>
+                        <tr>
+                            <th><label>password:</label></th>
+                            <td>
+                                @Html.PasswordFor(m => m.Password)
+                                @Html.ValidationMessageFor(m => m.Password)
+                            </td>
+                        </tr>
+                        <tr>
+                            
+                        </tr>
+                    </table>
+                    <div>
+                        <input type="submit" value="Login" />
+                        @Html.DisplayFor(m => m.msg)
+                        @Html.ActionLink("Register", "register_pageload", "AdminRegister")
+                    </div>
+
+                </div>
+            }
+</div>
+

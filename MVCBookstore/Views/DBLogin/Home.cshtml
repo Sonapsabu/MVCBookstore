@@ -1,0 +1,62 @@
+﻿@model IEnumerable<MVCBookstore.book>
+@{
+    ViewBag.Title = "Home";
+}
+
+<h3>Welcome</h3>
+
+
+<div>
+    @using (Html.BeginForm("Home", "DBLogin", FormMethod.Get))
+    {
+
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(m => m.bookname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.author)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.image)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(m => m.price)
+                </th>
+                @*<th>
+                        @Html.DisplayNameFor(m => m.Photo)
+                    </th>*@
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.bookname)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.author)
+                    </td>
+                    <td>
+                        <img src="@Url.Content(item.image)" alt="image" height="150px" width="150px" />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.price)
+                    </td>
+                    @*<td>
+                            @Html.DisplayFor(modelItem => item.Email)
+                        </td>*@
+
+                </tr>
+            }
+        </table>
+    }
+</div>
+<div>
+    @Html.ActionLink("Add Books", "Book_load", "AddBook")
+</div>
+
+<div>
+    @Html.ActionLink("change password", "pwd_load", "ChangePwd")
+</div>
+

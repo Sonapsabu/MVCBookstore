@@ -1,0 +1,51 @@
+﻿@model MVCBookstore.Models.Bookinsert
+@{
+    ViewBag.Title = "Book_load";
+}
+
+<h2>Add Books</h2>
+<div>
+    @using (Html.BeginForm("Book_click", "AddBook", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+        <div>
+            <label>Book name:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.bookname)
+            @Html.ValidationMessageFor(m => m.bookname)
+        </div>
+
+        <div>
+            <label>Book author:</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.author)
+            @Html.ValidationMessageFor(m => m.author)
+        </div>
+
+        <div>
+            <label>image</label>
+        </div>
+        <div>
+            @Html.TextBox("file", "", new { Type = "file" })
+        </div>
+
+        <div>
+            <label>price</label>
+        </div>
+        <div>
+            @Html.TextBoxFor(m => m.price)
+            @Html.ValidationMessageFor(m => m.price)
+        </div>
+        <div>
+            @Html.DisplayFor(m => m.msg)
+        </div>
+        <div>
+            <input type="submit" value="Add"/>
+        </div>
+        <div>
+            @Html.ActionLink("Back to Home", "Home", "DBLogin")
+        </div>
+    }
+</div>
+
